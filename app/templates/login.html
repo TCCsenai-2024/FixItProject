@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a visualização responsiva -->
+    <title>FixIt</title> <!-- Título da página -->
+    {% load static %} <!-- Carrega a tag estática do Django -->
+    <link rel="stylesheet" href="{% static 'css/login.css' %}"> <!-- Link para o CSS do login -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> <!-- Link para a fonte Roboto -->
+</head>
+<body>
+    <div class="container"> <!-- Contêiner principal -->
+        <div class="brand-container"> <!-- Contêiner para a marca -->
+            <img src="{% static 'imagens/logoFixIt.png' %}" alt="FixIt logo" class="logo-fixit"> <!-- Logo da marca -->
+        </div>
+        <div class="login-container"> <!-- Contêiner de login -->
+            <div class="login-box"> <!-- Caixa de login -->
+                <div class="company-logo"> <!-- Logotipo da empresa em SVG -->
+                    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30 70 L30 40 L45 30 L45 70 M55 70 L55 30 L70 40 L70 70 M25 75 L75 75"
+                              stroke="#1F2937" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                    </svg>
+                </div>
+                <h2>Login</h2> <!-- Título do formulário -->
+                <div id="div-spacer1" class="div-spacer"></div> <!-- Espaço entre elementos -->
+
+                <!-- Formulário de login -->
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %} <!-- Token de proteção contra CSRF -->
+                    <input type="email" id="emailInput" name="email" placeholder="Email" maxlength="50" required oninput="verificarCampos()" autocomplete="off">
+                    <div id="errorMessage" class="erroEmail"></div> <!-- Mensagem de erro para o email -->
+
+                    <div class="password-input"> <!-- Contêiner para entrada de senha -->
+                        <input type="password" id="senhaInput" name="senha" placeholder="Senha" maxlength="30" required oninput="verificarCampos()" autocomplete="off">
+                        <button type="button" class="toggle-password"> <!-- Botão para mostrar/ocultar senha -->
+                            <!-- Ícone de olho visível -->
+                            <svg class="eye" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <!-- Ícone de olho fechado -->
+                            <svg class="eye-off" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line> <!-- Linha de corte do olho fechado -->
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="senhaError" class="erroSenha"></div> <!-- Mensagem de erro para a senha -->
+                    <div id="errorDiv" class="erro {% if error %}show{% endif %}">{{ error|default:'' }}</div> <!-- Mensagem de erro geral -->
+                    <div id="div-spacer2" class="div-spacer"></div> <!-- Espaço entre elementos -->
+
+                    <!-- Botão de envio -->
+                    <button type="submit" id="submitButton" class="button-disabled" disabled>
+                        <span class="button-text">Continuar</span> <!-- Texto original do botão -->
+                        <span class="loading-spinner" style="display:none;"> <!-- Ícone de carregamento oculto -->
+                            <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" stroke-opacity="0.4"></circle>
+                                <path d="M12 2a10 10 0 0 1 10 10"></path>
+                            </svg>
+                        </span>
+                    </button>
+                </form>
+
+                <div class="links"> <!-- Links adicionais -->
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    <p>Não tem uma conta? <a href="{% url 'register' %}" class="create-account">Crie uma</a></p>
+                </div>
+            </div>
+
+            <div class="divider"></div> <!-- Divisor entre seções -->
+
+            <div class="social-login"> <!-- Contêiner para login social -->
+                <h2>Entrar com</h2> <!-- Título da seção de login social -->
+                <!-- Botão de login com Google -->
+                <button class="social-button google">
+                    <img src="{% static 'imagens/google.png' %}" alt="Google logo" class="social-logo"> Continuar com Google
+                </button>
+                <!-- Botão de login com Microsoft -->
+                <button class="social-button microsoft">
+                    <img src="{% static 'imagens/microsoft.png' %}" alt="Microsoft logo" class="social-logo"> Continuar com Microsoft
+                </button>
+                <!-- Botão de login com Apple -->
+                <button class="social-button apple">
+                    <img src="{% static 'imagens/apple.png' %}" alt="Apple logo" class="social-logo"> Continuar com Apple
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts para funcionalidades do login -->
+    <script src="{% static 'js/login.js' %}"></script>
+    <script src="{% static 'js/loading.js' %}"></script>
+    <script src="{% static 'js/showPassword.js' %}"></script>
+</body>
+</html>

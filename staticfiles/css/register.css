@@ -1,0 +1,288 @@
+/* Importando a fonte Roboto via Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte do corpo */
+    background-color: #121530; /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    margin: 0; /* Removendo margens padrão */
+    padding: 0; /* Removendo padding padrão */
+    display: flex; /* Flexbox para centralizar */
+    justify-content: center; /* Centralização horizontal */
+    align-items: center; /* Centralização vertical */
+    min-height: 100vh; /* Altura mínima da página */
+}
+
+.container {
+    width: 100%; /* Largura do container */
+    padding: 10px; /* Espaçamento interno */
+}
+
+.brand-container {
+    position: absolute; /* Fixa o logo */
+    top: 6%; /* Distância do topo */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Garante centralização */
+    text-align: center; /* Centraliza texto do logo */
+}
+
+.logo-fixit {
+    width: 200px; /* Largura da logo */
+}
+
+.login-container {
+    display: flex; /* Flexbox para login */
+    justify-content: center; /* Centralização horizontal */
+    gap: 50px; /* Espaço entre elementos */
+    align-items: center; /* Centralização vertical */
+    margin-top: 10vh; /* Ajuste de altura */
+}
+
+.login-box,
+.social-login {
+    background-color: #2e2e4d; /* Fundo escuro */
+    border-radius: 20px; /* Cantos arredondados */
+    padding: 30px; /* Espaçamento interno */
+    width: 100%; /* Ocupa largura total */
+    max-width: 320px; /* Largura máxima */
+    position: relative; /* Permite posicionamento absoluto de elementos internos */
+}
+
+.company-logo {
+    position: absolute; /* Posicionamento absoluto */
+    top: -50px; /* Logo acima da caixa */
+    left: 50%; /* Centralização horizontal */
+    transform: translateX(-50%); /* Garante centralização */
+    background-color: #fcd34d; /* Cor de fundo amarela */
+    border-radius: 50%; /* Formato circular */
+    width: 90px; /* Tamanho do círculo */
+    height: 90px; /* Tamanho do círculo */
+    display: flex; /* Flexbox para centralização */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.company-logo svg {
+    width: 100px; /* Largura do ícone */
+    height: 100px; /* Altura do ícone */
+    color: #2a2f3a; /* Cor do ícone */
+}
+
+h2 {
+    color: #fcd34d; /* Cor amarela dos títulos */
+    font-size: 2.5rem; /* Tamanho da fonte */
+    text-align: center; /* Centralização */
+    margin: 20px 0 30px; /* Espaçamento */
+}
+
+form {
+    display: flex; /* Flexbox no formulário */
+    flex-direction: column; /* Organiza em coluna */
+    gap: 10px; /* Espaço entre campos */
+}
+
+input {
+    background-color: #1a1a34; /* Fundo escuro */
+    border: 1px solid transparent; /* Bordas invisíveis */
+    border-radius: 12px; /* Cantos arredondados */
+    padding: 12px 20px; /* Espaçamento interno */
+    color: #fff; /* Texto branco */
+    font-size: 1rem; /* Tamanho da fonte */
+    transition: border-color 0.3s; /* Suaviza transição da borda */
+}
+
+input:focus {
+    outline: none; /* Remove contorno padrão */
+    border-color: #fcd34d; /* Borda amarela ao foco */
+}
+
+.input-error {
+    border-color: #ef3131 !important; /* Borda vermelha em erro */
+}
+
+.password-input {
+    display: flex; /* Flexbox para input e ícone */
+    align-items: center; /* Centralização vertical */
+    position: relative; /* Permite posicionamento absoluto do ícone */
+}
+
+.password-input input {
+    width: 100%; /* Largura total */
+    padding-right: 55px; /* Espaço extra para ícone */
+    box-sizing: border-box; /* Considera padding na largura */
+    min-height: 48px; /* Altura mínima */
+}
+
+.toggle-password {
+    position: absolute; /* Ícone de mostrar senha */
+    right: 10px; /* Alinha à direita */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajusta alinhamento */
+    background: none; /* Sem fundo */
+    border: none; /* Sem borda */
+    color: #a0a0a0; /* Cor cinza */
+    cursor: pointer; /* Indica que é clicável */
+}
+
+.toggle-password:hover {
+    color: #fcd34d; /* Cor amarela ao passar o mouse */
+}
+
+.eye, .eye-off {
+    transition: color 0.3s ease; /* Suaviza transição da cor */
+    display: none; /* Oculta ícones por padrão */
+}
+
+.eye.active, .eye-off.active {
+    display: block; /* Mostra ícones quando ativo */
+}
+
+button[type="submit"] {
+    background-color: #fcd34d; /* Fundo amarelo */
+    color: #2a2f3a; /* Texto escuro */
+    border: none; /* Sem borda */
+    border-radius: 12px; /* Cantos arredondados */
+    padding: 12px; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    cursor: pointer; /* Indica que é clicável */
+    transition: background-color 0.3s ease; /* Suaviza transição da cor de fundo */
+    width: 100%; /* Largura fixa do botão */
+    height: 48px; /* Altura fixa do botão */
+    display: flex; /* Exibe flexbox */
+    align-items: center; /* Centraliza ícone e texto verticalmente */
+    justify-content: center; /* Centraliza ícone e texto horizontalmente */
+    box-sizing: border-box; /* Inclui padding na largura e altura */
+}
+
+button[type="submit"]:hover {
+    background-color: #fff; /* Cor branca ao passar o mouse */
+}
+
+.button-disabled {
+    background-color: grey !important; /* Fundo cinza */
+    cursor: default !important; /* Cursor padrão */
+    opacity: 0.6 !important; /* Opacidade */
+}
+
+.links {
+    text-align: center; /* Centraliza links */
+    margin-top: 20px; /* Espaçamento acima */
+}
+
+.links a {
+    color: #fcd34d; /* Cor amarela */
+    text-decoration: none; /* Remove sublinhado */
+    transition: color 0.3s ease; /* Suaviza transição da cor */
+}
+
+.links a:hover {
+    color: #fff; /* Cor branca ao passar o mouse */
+}
+
+.links p {
+    color: #a0a0a0; /* Texto cinza claro */
+    margin-top: 10px; /* Espaçamento acima */
+}
+
+.divider {
+    width: 1px; /* Largura da linha divisória */
+    height: 300px; /* Altura da linha divisória */
+    background-color: #a0a0a0; /* Cor cinza escura */
+    margin: 0; /* Remove margens desnecessárias */
+}
+
+.social-button {
+    display: flex; /* Flexbox para alinhamento */
+    align-items: center; /* Centralização vertical */
+    justify-content: center; /* Centralização horizontal */
+    width: 100%; /* Largura total */
+    background-color: #fff; /* Fundo branco */
+    color: #000; /* Texto preto */
+    border: none; /* Sem borda */
+    border-radius: 12px; /* Cantos arredondados */
+    padding: 12px; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    cursor: pointer; /* Indica que é clicável */
+    margin-bottom: 15px; /* Espaço abaixo */
+    transition: background-color 0.3s; /* Suaviza transição da cor de fundo */
+}
+
+.social-button:hover {
+    background-color: #b1b1b1; /* Cor cinza claro ao passar o mouse */
+}
+
+.social-logo {
+    width: 20px; /* Largura da imagem */
+    height: 20px; /* Altura da imagem */
+    margin-right: 10px; /* Espaço entre imagem e texto */
+}
+
+/* Estilos responsivos para dispositivos menores */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column; /* Coloca em coluna no mobile */
+        align-items: center; /* Centraliza itens */
+    }
+
+    .divider {
+        width: 100%; /* Linha ocupando largura total */
+        height: 1px; /* Altura da linha */
+        margin: 20px 0; /* Espaçamento acima e abaixo */
+    }
+}
+
+/* Erros de validação */
+.erroEmail,
+.erroSenha {
+    font-size: 0.8rem; /* Tamanho da fonte */
+    opacity: 0; /* Começa invisível */
+    transition: opacity 0.3s ease; /* Transição suave */
+    visibility: hidden; /* Oculta completamente */
+    color: #ef3131; /* Cor vermelha */
+}
+
+#errorDiv {
+    font-size: 0.8rem; /* Tamanho da fonte */
+    color: #ef3131; /* Cor vermelha */
+}
+
+#div-spacer1,
+#div-spacer2 {
+    width: 100%;  /* A largura pode ser ajustada conforme necessário */
+    display: block; /* Certifica-se de que a div ocupe uma linha inteira */
+}
+
+/* Definindo alturas específicas para espaçadores */
+#div-spacer1 {
+    height: 15px; /* Define a altura do espaçamento */
+}
+
+#div-spacer2 {
+    height: 3px; /* Define a altura do espaçamento */
+}
+
+.show {
+    opacity: 1; /* Torna visível */
+    visibility: visible; /* Mostra elemento */
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    color: #2a2f3a;
+}
+
+button .spinner {
+    width: 20px; /* Largura fixa do spinner */
+    height: 20px; /* Altura fixa do spinner */
+    margin-left: 10px; /* Espaçamento entre o texto e o ícone */
+    display: inline-block; /* Mantém o ícone na linha */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
