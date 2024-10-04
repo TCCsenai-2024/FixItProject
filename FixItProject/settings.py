@@ -92,8 +92,9 @@ USE_I18N = True  # Ativar internacionalização
 USE_TZ = True  # Ativar suporte a fusos horários
 
 # Arquivos estáticos (CSS, JavaScript, Imagens)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'  # URL base para arquivos estáticos
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Diretórios adicionais para arquivos estáticos
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'app/static')]  # Diretórios adicionais para arquivos estáticos
 
 LOGIN_URL = 'login'  # URL de login padrão
 
